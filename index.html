@@ -26,7 +26,10 @@
             });
         });
     </script>
-
+    <script type="text/javascript">
+      var html = marked("# Hello, world!");   //markdownテキストをHTMLに変換
+      document.getElementById("the").innerHTML=html;
+    </script>
 
 
   </head>
@@ -85,7 +88,7 @@
           </div>
        </div>
                  <div id="markdown_content" src="garw.markdown"></div>
-                 <div class="md" > <p>what</p></div>
+                 <div class="md" > <p id="the"></p></div>
       </div>
 
 

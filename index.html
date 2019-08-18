@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Direction Mapping</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+
+<style>
+  body {padding: 0; margin: 0}
+  html, body, #map {height: 100%; width: 100%;}
+</style>
+</head>
+
+<body>
+<div id="map"></div>
+<script>
+var map = L.map('map');
+
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+}).addTo(map);
+
+//マーカー追加
+ L.marker([35.207010 , 139.650533])
+  .bindPopup("<h1>Start Point</h1>")
+  .addTo(map);
+
+  L.circle([35.188311,139.653269], 500, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+	}).addTo(map).bindPopup("I am a circle.");
+
+	L.polygon([
+		[35.188060,139.650063],
+		[35.188903,139.648553],
+    [35.189349,139.648465],
+    [35.189335,139.650205],
+    [35.188746,139.651377],
+    [35.188580,139.651170],
+    [35.188501,139.650332],
+		[35.188159,139.650124]
+	]).addTo(map).bindPopup("I am a polygon.");
+
+map.setView([35.188311,139.653269], 7);
+</script>
+</body>
+</html>
